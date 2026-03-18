@@ -1,8 +1,6 @@
-Feature: Login Functionality
+Feature: Login
 
-  Scenario: User successfully logs in with valid credentials
-    Given the login page is opened
-    When I enter the username "testuser"
-    And I enter the password "password123"
-    And I click the login button
-    Then I should see the dashboard page
+  Scenario: User can login
+    Given I open login page
+    When I login with username "user1" and password "password1"
+    Then I should see dashboard
