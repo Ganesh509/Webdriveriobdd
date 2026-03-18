@@ -1,6 +1,6 @@
-const { Given, When, Then } = require('@wdio/cucumber-framework');
-const LoginPage = require('../../pageobjects/login.page.js');
-const { expect } = require('chai');
+import { Given, When, Then } from '@wdio/cucumber-framework';
+import { open, login, isDashboardDisplayed } from '../../pageobjects/login.page';
+import { expect } from 'chai';
 
 Given('I open the login page', async () => {
     await LoginPage.open();
