@@ -1,10 +1,10 @@
 // login.page.js
-export default class LoginPage {
+class LoginPage {
     get username() { return $('#username'); }
     get password() { return $('#password'); }
     get loginBtn() { return $('#loginBtn'); }
     get dashboard() { return $('#dashboard'); }
-    
+
     async open() {
         await browser.url('https://www.google.com/');
     }
@@ -15,3 +15,5 @@ export default class LoginPage {
         await this.loginBtn.click();
     }
 }
+
+module.exports = LoginPage; // CommonJS export
