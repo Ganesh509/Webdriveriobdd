@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
-const LoginPage = require('../../pageobjects/login.page');
+const LoginPage = require('../../pageobjects/login.page.js');
 const { expect } = require('chai');
 
 Given('I open the login page', async () => {
