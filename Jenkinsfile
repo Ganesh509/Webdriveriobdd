@@ -13,7 +13,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Ganesh509/webdriverio.git'
+                git branch: 'main', url: 'https://github.com/Ganesh509/WebdriverIO_BDD.git'
             }
         }
 
