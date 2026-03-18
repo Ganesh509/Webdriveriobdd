@@ -10,7 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "devDependencies": {
     "@wdio/allure-reporter": "^9.26.1",
     "@wdio/cli": "^9.25.0",
