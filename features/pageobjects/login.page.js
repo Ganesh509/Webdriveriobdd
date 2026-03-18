@@ -1,3 +1,4 @@
+// login.page.js
 export default class LoginPage {
     get username() { return $('#username'); }
     get password() { return $('#password'); }
@@ -14,4 +15,3 @@ export default class LoginPage {
         await this.loginBtn.click();
     }
 }
-
