@@ -34,11 +34,6 @@ pipeline {
                 '''
             }
         }
-        post {
-    always {
-      sh 'npm run generate-report'
-    }
-  }
 
         stage('Generate Allure Report') {
             steps {
