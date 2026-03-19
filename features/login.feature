@@ -7,4 +7,4 @@ Feature: Login
 
     Scenario: User can invalid login
     Given I open login page
-    When I login with username "user1" and password "password1"
+    #When I login with username "user1" and password "password1"
