@@ -13,7 +13,7 @@ exports.config = {
   protocol: useDocker ? (process.env.SELENIUM_PROTOCOL || 'http') : 'http',
   hostname: useDocker ? (process.env.SELENIUM_HOST || 'localhost') : 'localhost',
   port: useDocker ? (process.env.SELENIUM_PORT || 4444) : 9515,
-  path: useDocker ? '/wd/hub' : '/',
+  path: useDocker ? (process.env.SELENIUM_PATH || '/wd/hub') : '/',
 
   // Base URL for tests
   baseUrl: process.env.BASE_URL || 'https://practice.saucedemo.com',

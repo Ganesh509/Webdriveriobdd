@@ -44,7 +44,10 @@ pipeline {
       steps {
         sh '''
           mkdir -p allure-results
-          npm run test:smoke
+          # Use docker-compose to start Grid + nodes and run tests inside the `tests` service.
+          # TAGS is passed to the tests container to run only smoke tests.
+          TAGS="@smoke" docker-compose -f docker-compose.yml up --build --abort-on-container-exit --exit-code-from tests || true
+          docker-compose -f docker-compose.yml down --volumes --remove-orphans || true
         '''
       }
     }
@@ -56,7 +59,9 @@ pipeline {
       steps {
         sh '''
           mkdir -p allure-results
-          npm test
+          # Full test run against the Grid (no TAGS => all tests)
+          docker-compose -f docker-compose.yml up --build --abort-on-container-exit --exit-code-from tests || true
+          docker-compose -f docker-compose.yml down --volumes --remove-orphans || true
         '''
       }
     }

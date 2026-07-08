@@ -74,6 +74,26 @@ npm run test:docker
 docker-compose up
 ```
 
+**Run with Selenium Grid (Docker Compose)**
+
+Use the unified compose (`docker-compose.yml`) to run a Hub, Chrome nodes and a test runner container that executes `npm test` against the Grid:
+
+```bash
+# Start Grid and test container (ports: 4444 for Hub, 7900 for VNC)
+# To run only smoke tests set TAGS before the command.
+TAGS="@smoke" docker-compose -f docker-compose.yml up --build --abort-on-container-exit --exit-code-from tests
+
+# Or run full suite
+docker-compose -f docker-compose.yml up --build --abort-on-container-exit --exit-code-from tests
+
+# Tear down
+docker-compose -f docker-compose.yml down --volumes --remove-orphans
+```
+
+Notes:
+- The `tests` service uses the project `Dockerfile` and sets `USE_DOCKER=true`, `SELENIUM_HOST=selenium-hub`, and `SELENIUM_PATH=/` so `wdio` connects to Grid v4 correctly.
+- To view the browser during runs, connect a VNC client to `localhost:7900` (provided by `node-chrome-debug`).
+
 **Key configuration points**
 - Base URL: configured via `.env` or `BASE_URL` environment variable; default in `wdio.conf.js`.
 - Browser options and headless mode controlled by `HEADLESS` and `CHROME_ARGS`.
